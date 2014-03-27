@@ -59,9 +59,14 @@ $(document).bind('pageinit', function() {
   });
 
   $( "#button2" ).bind( "click", function(event, ui) {
+	  var author = $("#text2").val();
+	  var quote = $("#text2").val();
  	alert("Posting a new quote");
  	var jsonUrl = "http://embassy.ecs.vuw.ac.nz:8002/quote";
- 	var newQuote = { "author" : "foo", "text" : "some text" };
+ 	var newQuote = { 
+		"author" : author, 
+		"text" : quote
+	};
  	$.post(jsonUrl,newQuote, function(data) {
    	alert("Added " + data.author + " " + data.text);
  	}, 'json');
